@@ -23,3 +23,16 @@ Use your rule with different projects and describe you findings below. See the [
 
 ## Answer
 
+<rule name="complexCode"
+      language="java"
+      message="More then 3 if detected"
+      class="net.sourceforge.pmd.lang.rule.XPathRule" >
+      <properties>
+        <property name="maxStatements" type="Integer" value="10" min="1" max="40" description="Max number of statements per method"/>
+        <property name="xpath">
+    <![CDATA[
+      //MethodDeclaration/Block[count(//ifStatement) > $maxStatements]
+    ]]></property>
+  </properties>
+    <priority>3</priority>
+</rule>
